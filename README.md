@@ -28,19 +28,21 @@
     `docker run -d -e REDIS_SERVICE_HOST="172.17.0.8" -e REDIS_SERVICE_PORT="6379" -p 8080:8080    registry.lvtc.gsnet.corp/produban/tomcat8:latest`
     
   5 Copiamos el fichero sobre el contenedor en ejecución (solo para testear rapidamente)
-    `docker cp  httpsession-xml-0.0.1-SNAPSHOT.war NAMECONTAINER:/deployments/httpsession-xml-0.0.1-SNAPSHOT.war`
+    
+`docker cp  httpsession-xml-0.0.1-SNAPSHOT.war NAMECONTAINER:/deployments/httpsession-xml-0.0.1-SNAPSHOT.war`
   
   6 Commit y (procedimiento poco ortodoxo - solo para testear rapidamente)
+
     `docker commit containerID urlregistry/user/nameimage:version`
 
     `docker push urlregistry/user/nameimage:version`
     
   7. Acceso a la APP (docker / docker-compose - up to you)
-  ` curl namemachine:8080/httpsession-xml-0.0.1-SNAPSHOT/`
 
-  4. Creacion de template OSE para el despliegue de la aplicación en OSE
-  WTF!!
-    La creación de la plantilla pasará por disponibilizar los siguientes elementos:
+     `curl namemachine:8080/httpsession-xml-0.0.1-SNAPSHOT/`
+
+  4. Creacion de template OSE para el despliegue de la aplicación en OSE. La creación de la plantilla pasará por disponibilizar los siguientes elementos:
+  
     1. 2 pods
     2. 2 servicios
     3. 1 route
